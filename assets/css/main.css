@@ -2936,8 +2936,9 @@
 /* Banner */
 
 	#banner {
+		position: relative;
 		padding: 12em 0 10em 0;
-		background-image: url('../../images/banner.jpg');
+		background-image: url('../../images/bannerk3.jpg');
 		background-size: cover;
 		background-position: top;
 		background-attachment: fixed;
@@ -2946,10 +2947,27 @@
 
 	}
 
+	#banner::before {
+    	content: "";
+    	position: absolute;
+		top: 0;
+    	left: 0;
+    	width: 100%;
+    	height: 100%;
+    	background: rgba(0, 0, 0, 0.4); /* ubah 0.4 → 0.6 kalau masih kurang gelap */
+    	z-index: 1;
+	}
+
+		#banner h1,
+		#banner p {
+    	position: relative;
+    	z-index: 2;
+		}
+
 		#banner h1 {
 			font-size: 3.5em;
 			font-weight: 100;
-			color: #fff;
+			color: #ffffff;
 			line-height: 1em;
 			margin: 0 0 0.5em 0;
 			padding: 0;
@@ -3084,3 +3102,24 @@
 		}
 
 	}
+	/* Biar semua artikel di #one sejajar otomatis */
+#one .flex {
+  align-items: stretch; /* semua kotak (article) sama tinggi */
+}
+
+#one article {
+  display: flex;
+  flex-direction: column; /* biar tombol tetap di bawah */
+}
+
+#one article footer {
+  margin-top: auto; /* tombol selalu nempel di bawah */
+}
+/* Biar semua gambar di section "three" punya ukuran sama */
+#three .image.fit img {
+  width: 100%;
+  height: 250px; /* kamu bisa ubah 250px jadi 200–300 sesuai tampilan */
+  object-fit: cover; /* biar gambar tidak ketarik tapi tetap penuh */
+  border-radius: 10px; /* opsional, biar sudutnya lembut */
+}
+
